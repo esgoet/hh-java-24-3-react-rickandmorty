@@ -6,6 +6,7 @@ export default function Navigation() {
         <nav>
             <Link to={"/"}>Home</Link>
             <Link to={"/characters"}>Characters</Link>
+            <Link to={"/characters/submit"}>Submit A Character</Link>
         </nav>
     )
 }

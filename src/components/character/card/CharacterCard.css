@@ -4,20 +4,35 @@
     border: 1px solid #ccc;
     border-radius: 20px;
     display: flex;
+    align-items: center;
     padding: 10px;
     gap: 10px;
+    cursor: pointer;
+    position: relative;
 }
 
 .character-card img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
+    margin: 7px;
 }
 
 .character-card-info h3 {
     margin: 0;
+    text-align: left;
 }
 
 .character-card-info p {
     margin: 10px 0 0 0;
+    text-align: left;
+}
+
+.character-card:hover {
+    background-color: #535bf2;
+}
+
+.character-card button {
+    position: absolute;
+    bottom: 20px;
 }

@@ -1,0 +1,34 @@
+.character-details-card {
+    max-width: 80vw;
+    min-width: 300px;
+    min-height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.character-details-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 15px;
+}
+
+.character-details-card-info h3 {
+    margin: 0;
+}
+
+.character-details-card-info p {
+    margin: 10px 0 0 0;
+    text-align: left;
+}
+
+.character-details-card button {
+    position: absolute;
+    bottom: 15px;
+    left: 25px;
+}

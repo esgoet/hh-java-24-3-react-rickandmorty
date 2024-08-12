@@ -3,14 +3,20 @@ import {useState} from "react";
 import {characters} from "./Characters.ts";
 import {Route, Routes} from "react-router-dom";
 import Home from "./components/Home.tsx";
-import Characters from "./components/Characters.tsx";
-import Navigation from "./components/Navigation.tsx";
+import CharacterPage from "./components/character/page/CharacterPage.tsx";
+import Navigation from "./components/navigation/Navigation.tsx";
+import CharacterDetailCard from "./components/character/detail/CharacterDetailCard.tsx";
+import CharacterSubmission from "./components/character/submission/CharacterSubmission.tsx";
+import {Character} from "./types/RickAndMortyCharacter.ts";
+
 
 export default function App() {
-    const [searchText, setSearchText] = useState("");
+    const [searchText, setSearchText] = useState<string>("");
+    const [currentCharacters, setCurrentCharacters ] = useState<Character[]>(characters);
 
-    const filteredCharacters = characters
+    const filteredCharacters = currentCharacters
         .filter((character) => character.name.toLowerCase().includes(searchText.toLowerCase()));
+
 
     return (
         <>
@@ -20,10 +26,10 @@ export default function App() {
             </header>
             <Routes>
                 <Route path={"/"} element={<Home/>}/>
-                <Route path={"/characters"} element={<Characters characters={filteredCharacters} setSearchText={setSearchText} searchText={searchText}/>}/>
+                <Route path={"/characters"} element={<CharacterPage characters={filteredCharacters} setSearchText={setSearchText} searchText={searchText}/>}/>
+                <Route path={"/characters/:id"} element={<CharacterDetailCard characters={currentCharacters} />}/>
+                <Route path={"/characters/submit"} element={<CharacterSubmission characters={currentCharacters} setCharacters={setCurrentCharacters}/>}/>
             </Routes>
-
-
         </>
     );
 }
